@@ -8,11 +8,12 @@ class DashBoardRepo {
   DashBoardOne resOne = DashBoardOne();
 
   Future<DashBoardOne> fetchDashboardOneDetais() async {
-    
     final response =
         await AdditionalDataService.instance.fetchDashboardOneData(globals.pk);
     print("Response - $response");
     resOne = dashBoardOneFromJson(response.body);
+    print('update');
     return resOne;
+    
   }
 }
