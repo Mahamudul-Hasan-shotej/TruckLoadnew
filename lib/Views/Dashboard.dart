@@ -57,23 +57,12 @@ class _DashboardState extends State<Dashboard> {
 
   //getting the data from model through Api service
   getdata() async {
-    var info = await Amplify.Auth.getCurrentUser();
-
-    mail = info.username;
-    // mail = 'bata2@gmail.com'; // as Data is not updated
-    customerInfodata = await AdditionalDataService.fetchClientInfo(mail);
-    if (customerInfodata.data.isNotEmpty) {
-      globals.pk = customerInfodata.data[0].pk;
-      pk = customerInfodata.data[0].pk;
-      print(pk);
-    } else {
-      print('No Data in user thread');
-    }
+    customerInfodata = await dashBoardRepo.fetchCustomerInfo();
 
     //orderData = await AdditionalDataService.fetchOrder(pk);
     //dataone = await AdditionalDataService.fetchDataOne(pk);
     //print(dataone.data[0].value);
-    datatwo = await AdditionalDataService.fetchDatatwo(pk);
+    datatwo = await AdditionalDataService.fetchDatatwo(globals.pk);
     //print('Name of client ${customerInfodata.data[0].name}');
     int length = datatwo.data.length;
 
@@ -82,8 +71,6 @@ class _DashboardState extends State<Dashboard> {
         listOfdata[i] = int.parse(datatwo.data[i].value);
       }
     }
-
-    //print(datatwo.data[0].label);
   }
 
   //Sending the listOfData and colour to BarChart
@@ -200,30 +187,41 @@ class _DashboardState extends State<Dashboard> {
                           if (snapshot.connectionState ==
                               ConnectionState.done) {
                             if (snapshot.hasData) {
-                              DashBoardOne dashBoardOne = snapshot.data;
                               return Consumer<DashboardDetailsProvider>(
                                   builder: (context, result, child) {
-                                return Container(
-                                  child: ListView(
-                                    scrollDirection: Axis.horizontal,
-                                    children: [
-                                      cardviews(dashBoardOne.data[0].value,
-                                          "Successful"),
-                                      SizedBox(
-                                        width:
-                                            1.21 * SizeConfig.widthMultiplier,
-                                      ), //sending data and status to the card view
-                                      cardviews(dashBoardOne.data[1].value,
-                                          "Cancelled"),
-                                      SizedBox(
-                                        width:
-                                            1.21 * SizeConfig.widthMultiplier,
-                                      ),
-                                      cardviews(dashBoardOne.data[2].value,
-                                          "On Progress"),
-                                    ],
-                                  ),
-                                );
+                                if (result.dashboardone.message!='loading... '
+                                    ) {
+                                  return Container(
+                                    child: ListView(
+                                      scrollDirection: Axis.horizontal,
+                                      children: [
+                                        cardviews(
+                                            result.dashboardone.data.data[0]
+                                                .value,
+                                            "Successful"),
+                                        SizedBox(
+                                          width:
+                                              1.21 * SizeConfig.widthMultiplier,
+                                        ), //sending data and status to the card view
+                                        cardviews(
+                                            result.dashboardone.data.data[1]
+                                                .value,
+                                            "Cancelled"),
+                                        SizedBox(
+                                          width:
+                                              1.21 * SizeConfig.widthMultiplier,
+                                        ),
+                                        cardviews(
+                                            result.dashboardone.data.data[2]
+                                                .value,
+                                            "On Progress"),
+                                      ],
+                                    ),
+                                  );
+                                } else {
+                                  return Center(
+                                      child: CircularProgressIndicator());
+                                }
                               });
                             } else {
                               return Center(child: CircularProgressIndicator());

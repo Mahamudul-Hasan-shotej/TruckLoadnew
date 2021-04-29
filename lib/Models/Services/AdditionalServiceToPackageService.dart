@@ -48,13 +48,16 @@ class AdditionalDataService {
   }
   //https://api.truckload.trukiot.com/v1/all?orientation=customer&email=bata2@gmail.com
 
-  static Future fetchClientInfo(String mail) async {
-    final response =
-        await http.get('$url/all?orientation=customer&email=$mail');
-    if (response.statusCode == 200) {
-      resfour = customerInfodataFromJson(response.body);
-      return resfour;
+   Future<dynamic> fetchClientInfo(String mail) async {
+     var responseJson;
+    try {
+      final response =
+          await http.get('$url/all?orientation=customer&email=$mail');
+           responseJson = _returnResponse(response);
+    } on  SocketException  {
+       throw FetchDataException('No Internet connection');// TODO
     }
+    return responseJson;
   }
 
   //'https://api.truckload.trukiot.com/v8/object?pk=1614489805683_lgri_order&sk=lease

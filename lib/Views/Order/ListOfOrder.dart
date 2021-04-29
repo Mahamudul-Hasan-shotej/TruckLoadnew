@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:truck_load_demo/Models/Provider/Dashboard/dashBoardOne.dart';
 import 'package:truck_load_demo/ViewModel/CustomerInfodata.dart';
 import 'package:truck_load_demo/ViewModel/OrderFormData.dart';
 import 'package:truck_load_demo/Models/modelData/Color.dart';
 import 'package:truck_load_demo/Models/modelData/SizeConfig.dart';
 import 'package:truck_load_demo/Views/Order/Order.dart';
 import 'package:truck_load_demo/Models/Services/AdditionalServiceToPackageService.dart';
+import 'package:truck_load_demo/repositories/deshBoardOne_repo.dart';
 import 'Global.dart' as globals;
 import '../Dashboard.dart';
 
@@ -368,6 +371,10 @@ class _ListOfOrderState extends State<ListOfOrder> {
                 ),
                 RaisedButton(
                   onPressed: () {
+                    Provider.of<DashboardDetailsProvider>(context,
+                            listen: false)
+                        .fetchDashboardOneDetais();
+
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
