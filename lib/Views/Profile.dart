@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image/image.dart';
 import 'package:truck_load_demo/Models/modelData/Color.dart';
-import 'Order/Global.dart' as globals;
+import 'OrderPlace/Global.dart' as globals;
 import 'package:image_picker/image_picker.dart';
 import 'package:truck_load_demo/ViewModel/CustomerInfodata.dart';
 import 'package:truck_load_demo/Models/modelData/SizeConfig.dart';

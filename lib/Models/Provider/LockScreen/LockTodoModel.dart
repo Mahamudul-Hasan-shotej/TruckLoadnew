@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:truck_load_demo/Models/Provider/LockScreen/LockTaskModel.dart';
-import 'package:truck_load_demo/Views/Order/Global.dart' as globals;
+import 'package:truck_load_demo/Views/OrderPlace/Global.dart' as globals;
 
 class LockTodoModel extends ChangeNotifier {
   List<LockTaskModel> tasklist = [];

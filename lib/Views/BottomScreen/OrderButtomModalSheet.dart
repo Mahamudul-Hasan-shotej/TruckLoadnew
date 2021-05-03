@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:truck_load_demo/ViewModel/DashboardTwo.dart';
 import 'package:truck_load_demo/Models/modelData/SizeConfig.dart';
 
-import 'package:truck_load_demo/Views/Order/Global.dart' as globals;
-import 'package:truck_load_demo/Models/Services/AdditionalServiceToPackageService.dart';
+
+
+import 'package:truck_load_demo/repositories/DashBoard/deshBoardOne_repo.dart';
 
 class OrderModalButtom {
+  DashBoardRepo dashBoardRepo=DashBoardRepo();
   showModalBottomSheetOrder(
     context,
   ) {
@@ -26,7 +28,7 @@ class OrderModalButtom {
                   topLeft: Radius.circular(30), topRight: Radius.circular(30)),
             ),
             child: FutureBuilder(
-                future: AdditionalDataService.fetchDatatwo(globals.pk),
+                future:dashBoardRepo.fetchDashboardTwoDetails() ,
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.done) {
                     if (snapshot.hasData) {

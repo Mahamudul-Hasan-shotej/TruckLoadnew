@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:truck_load_demo/Models/Services/api_response.dart';
 import 'package:truck_load_demo/ViewModel/DashboardOne.dart';
-import 'package:truck_load_demo/repositories/deshBoardOne_repo.dart';
-import 'package:truck_load_demo/Views/Order/Global.dart' as globals;
+import 'package:truck_load_demo/repositories/DashBoard/deshBoardOne_repo.dart';
+
 class DashboardDetailsProvider with ChangeNotifier {
   DashBoardRepo _boardRepo;
   ApiResponse<DashBoardOne> _dashboardOne;

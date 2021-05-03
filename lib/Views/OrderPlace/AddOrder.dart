@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:truck_load_demo/ViewModel/CustomerInfodata.dart';
 import 'package:truck_load_demo/Models/modelData/Color.dart';
 import 'package:truck_load_demo/Models/modelData/SizeConfig.dart';
-import 'package:truck_load_demo/Views/Order/Order.dart';
+import 'package:truck_load_demo/Views/OrderPlace/Order.dart';
 
 import '../Dashboard.dart';
 

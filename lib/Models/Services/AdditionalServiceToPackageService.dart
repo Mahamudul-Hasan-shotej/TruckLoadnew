@@ -32,30 +32,33 @@ class AdditionalDataService {
     try {
       final response = await http.get('$url/g/c/trip?sk=$pk');
       responseJson = _returnResponse(response);
-    } on SocketException  {
-       throw FetchDataException('No Internet connection');// TODO
+    } on SocketException {
+      throw FetchDataException('No Internet connection'); // TODO
     }
     return responseJson;
   }
 
   //https://api.truckload.trukiot.com/v1/s/c/trip?sk=$pk
-   static Future fetchDatatwo(String pk) async {
-    final response = await http.get('$url/s/c/trip?sk=$pk');
-    if (response.statusCode == 200) {
-      resTwo = dashBoardtwoFromJson(response.body);
-      return resTwo;
+  Future<dynamic> fetchDashboardTwoData(String pk) async {
+    var responseJson;
+    try {
+      final response = await http.get('$url/s/c/trip?sk=$pk');
+      responseJson = _returnResponse(response);
+    } on SocketException {
+      throw FetchDataException('No Internet connection');
     }
+    return responseJson;
   }
   //https://api.truckload.trukiot.com/v1/all?orientation=customer&email=bata2@gmail.com
 
-   Future<dynamic> fetchClientInfo(String mail) async {
-     var responseJson;
+  Future<dynamic> fetchClientInfo(String mail) async {
+    var responseJson;
     try {
       final response =
           await http.get('$url/all?orientation=customer&email=$mail');
-           responseJson = _returnResponse(response);
-    } on  SocketException  {
-       throw FetchDataException('No Internet connection');// TODO
+      responseJson = _returnResponse(response);
+    } on SocketException {
+      throw FetchDataException('No Internet connection'); // TODO
     }
     return responseJson;
   }

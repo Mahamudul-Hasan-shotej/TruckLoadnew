@@ -4,8 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:truck_load_demo/Models/modelData/Color.dart';
 import 'package:truck_load_demo/Models/modelData/SizeConfig.dart';
 
-import 'package:truck_load_demo/Views/Order/Global.dart' as globals;
-
+import 'package:truck_load_demo/Views/OrderPlace/Global.dart' as globals;
 
 import 'package:truck_load_demo/Views/OrderDetails.dart';
 import 'package:truck_load_demo/Views/OrderInfo/LockSccreen1.dart';
@@ -21,7 +20,7 @@ class LockScreen extends StatefulWidget {
 }
 
 class _LockScreenState extends State<LockScreen> {
-  final textList = ['Smart Lock', 'VS Camera', 'VTS & Maps'];
+  final textList = ['Smart Lock', 'Camera', 'Location'];
   @override
   Widget build(BuildContext context) {
     return WillPopScope(

@@ -12,7 +12,7 @@ import 'dart:async';
 import 'Global.dart' as globals;
 import 'package:flutter/services.dart';
 
-import 'package:truck_load_demo/Views/Order/ListOfOrder.dart';
+import 'package:truck_load_demo/Views/OrderPlace/ListOfOrder.dart';
 
 class Order extends StatefulWidget {
   final CustomerInfodata customerData;

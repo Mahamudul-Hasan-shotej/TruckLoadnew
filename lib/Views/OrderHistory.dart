@@ -8,7 +8,7 @@ import 'package:truck_load_demo/Views/Dashboard.dart';
 
 import 'package:truck_load_demo/Views/OrderDetails.dart';
 import 'package:truck_load_demo/Models/Services/AdditionalServiceToPackageService.dart';
-import 'package:truck_load_demo/Views/Order/Global.dart' as globals;
+import 'package:truck_load_demo/Views/OrderPlace/Global.dart' as globals;
 import 'Dashboard.dart';
 
 class OrderHistory extends StatefulWidget {

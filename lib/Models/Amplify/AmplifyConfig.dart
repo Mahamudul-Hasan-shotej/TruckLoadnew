@@ -2,7 +2,7 @@
 import 'package:amplify_flutter/amplify.dart';
 import 'package:amplify_storage_s3/amplify_storage_s3.dart';
 import 'package:truck_load_demo/Models/Amplify/amplifyconfiguration.dart';
-import 'package:truck_load_demo/Views/Order/Global.dart' as globals;
+import 'package:truck_load_demo/Views/OrderPlace/Global.dart' as globals;
 void configureAmplify() async {
     // Once Plugins are added, configure Amplify
     // Note: Amplify can only be configured once.

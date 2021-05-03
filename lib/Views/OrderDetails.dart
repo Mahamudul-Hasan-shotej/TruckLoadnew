@@ -8,7 +8,7 @@ import 'package:truck_load_demo/Models/modelData/SizeConfig.dart';
 
 import 'package:truck_load_demo/Views/OrderInfo/LockScreen.dart';
 import 'package:truck_load_demo/Models/Services/AdditionalServiceToPackageService.dart';
-import 'Order/Global.dart' as globals;
+import 'OrderPlace/Global.dart' as globals;
 import 'package:truck_load_demo/Views/OrderHistory.dart';
 
 class OrderDetails extends StatefulWidget {

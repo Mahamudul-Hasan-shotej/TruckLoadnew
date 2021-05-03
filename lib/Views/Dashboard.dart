@@ -18,14 +18,14 @@ import 'package:truck_load_demo/ViewModel/OrderData.dart';
 import 'package:truck_load_demo/Models/modelData/Color.dart';
 import 'package:truck_load_demo/Models/modelData/SizeConfig.dart';
 import 'package:truck_load_demo/Views/LoginScreenOne.dart';
-import 'package:truck_load_demo/Views/Order/AddOrder.dart';
+import 'package:truck_load_demo/Views/OrderPlace/AddOrder.dart';
 import 'package:truck_load_demo/Views/OrderHistory.dart';
 import 'package:truck_load_demo/Views/Profile.dart';
-import 'package:truck_load_demo/repositories/deshBoardOne_repo.dart';
+import 'package:truck_load_demo/repositories/DashBoard/deshBoardOne_repo.dart';
 
-import 'Order/Global.dart' as globals;
+import 'OrderPlace/Global.dart' as globals;
 
-import 'package:truck_load_demo/Models/Services/AdditionalServiceToPackageService.dart';
+
 import 'package:truck_load_demo/widgets/data_cart.dart';
 
 class Dashboard extends StatefulWidget {
@@ -62,7 +62,7 @@ class _DashboardState extends State<Dashboard> {
     //orderData = await AdditionalDataService.fetchOrder(pk);
     //dataone = await AdditionalDataService.fetchDataOne(pk);
     //print(dataone.data[0].value);
-    datatwo = await AdditionalDataService.fetchDatatwo(globals.pk);
+    datatwo = await dashBoardRepo.fetchDashboardTwoDetails();
     //print('Name of client ${customerInfodata.data[0].name}');
     int length = datatwo.data.length;
 

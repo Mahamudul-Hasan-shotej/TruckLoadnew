@@ -4,7 +4,8 @@ import 'package:amplify_flutter/amplify.dart';
 import 'package:truck_load_demo/Models/Services/AdditionalServiceToPackageService.dart';
 import 'package:truck_load_demo/ViewModel/CustomerInfodata.dart';
 import 'package:truck_load_demo/ViewModel/DashboardOne.dart';
-import 'package:truck_load_demo/Views/Order/Global.dart' as globals;
+import 'package:truck_load_demo/ViewModel/DashboardTwo.dart';
+import 'package:truck_load_demo/Views/OrderPlace/Global.dart' as globals;
 
 class DashBoardRepo {
   DashBoardOne resOne = DashBoardOne();
@@ -25,7 +26,7 @@ class DashBoardRepo {
   }
 
   Future<DashBoardOne> fetchDashboardOneDetais() async {
-    if (customerInfodata.data!=null) {
+    if (customerInfodata.data != null) {
       globals.pk = customerInfodata.data[0].pk;
     } else {
       print('No Data in user thread');
@@ -36,5 +37,14 @@ class DashBoardRepo {
     resOne = dashBoardOneFromJson(response.body);
 
     return resOne;
+  }
+
+  Future<DashBoardtwo> fetchDashboardTwoDetails() async {
+    
+    final response =
+        await AdditionalDataService.instance.fetchDashboardTwoData(globals.pk);
+    print("Response - $response");
+
+    return dashBoardtwoFromJson(response.body);
   }
 }

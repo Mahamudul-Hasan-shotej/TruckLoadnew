@@ -5,9 +5,9 @@ import 'package:truck_load_demo/ViewModel/CustomerInfodata.dart';
 import 'package:truck_load_demo/ViewModel/OrderFormData.dart';
 import 'package:truck_load_demo/Models/modelData/Color.dart';
 import 'package:truck_load_demo/Models/modelData/SizeConfig.dart';
-import 'package:truck_load_demo/Views/Order/Order.dart';
+import 'package:truck_load_demo/Views/OrderPlace/Order.dart';
 import 'package:truck_load_demo/Models/Services/AdditionalServiceToPackageService.dart';
-import 'package:truck_load_demo/repositories/deshBoardOne_repo.dart';
+
 import 'Global.dart' as globals;
 import '../Dashboard.dart';
 

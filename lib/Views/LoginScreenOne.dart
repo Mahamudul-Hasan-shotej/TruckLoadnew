@@ -14,7 +14,7 @@ import 'package:truck_load_demo/ViewModel/EmailValidator.dart';
 import 'package:truck_load_demo/Models/modelData/Color.dart';
 import 'package:truck_load_demo/Models/modelData/SizeConfig.dart';
 import 'package:truck_load_demo/Views/Dashboard.dart';
-import 'Order/Global.dart' as globals;
+
 
 //import 'package:flutter_svg/flutter_svg.dart';
 

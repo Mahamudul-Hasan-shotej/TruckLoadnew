@@ -4,7 +4,7 @@ import 'package:truck_load_demo/Models/modelData/Color.dart';
 import 'package:truck_load_demo/Models/modelData/SizeConfig.dart';
 import 'package:truck_load_demo/Models/Provider/LockScreen/LockTaskModel.dart';
 import 'package:truck_load_demo/Models/Provider/LockScreen/LockTodoModel.dart';
-import 'package:truck_load_demo/Views/Order/Global.dart' as globals;
+import 'package:truck_load_demo/Views/OrderPlace/Global.dart' as globals;
 
 class LockScreen1 extends StatefulWidget {
   @override
