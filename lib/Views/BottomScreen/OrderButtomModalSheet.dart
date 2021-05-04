@@ -5,7 +5,7 @@ import 'package:truck_load_demo/Models/modelData/SizeConfig.dart';
 
 
 
-import 'package:truck_load_demo/repositories/DashBoard/deshBoardOne_repo.dart';
+import 'package:truck_load_demo/repositories/DashBoard/deshBoard_repo.dart';
 
 class OrderModalButtom {
   DashBoardRepo dashBoardRepo=DashBoardRepo();

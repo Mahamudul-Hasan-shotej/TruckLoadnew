@@ -82,15 +82,18 @@ class AdditionalDataService {
     }
   }
 
-  static Future<http.Response> createOrder(var data) async {
-    final response = await http.post('$url/order',
-        headers: {HttpHeaders.contentTypeHeader: 'application/json'},
-        body: orderformdataToJson(data));
-    if (response.statusCode == 200) {
-      //resthree = orderformdataFromJson(response.body);
-      return response;
+  Future<http.Response> createOrder(var data) async {
+    var responseJson;
+    try {
+      final response = await http.post('$url/order',
+          headers: {HttpHeaders.contentTypeHeader: 'application/json'},
+          body: orderformdataToJson(data));
+      responseJson = _returnResponse(response);
+    } on SocketException {
+      throw FetchDataException('No Internet connection');
     }
-    return null;
+
+    return responseJson;
   }
 
   dynamic _returnResponse(http.Response response) {

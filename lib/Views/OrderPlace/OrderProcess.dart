@@ -1,16 +1,15 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:truck_load_demo/ViewModel/CustomerInfodata.dart';
 import 'package:truck_load_demo/Models/modelData/Color.dart';
 import 'package:truck_load_demo/Models/modelData/SizeConfig.dart';
-import 'package:truck_load_demo/Views/OrderPlace/Order.dart';
+import 'package:truck_load_demo/Views/OrderPlace/OrderForm.dart';
+import 'package:truck_load_demo/repositories/DashBoard/deshBoard_repo.dart';
 
 import '../Dashboard.dart';
 
-
 class AddOrder extends StatefulWidget {
   final CustomerInfodata customerData;
+
   AddOrder({this.customerData});
   @override
   _AddOrderState createState() => _AddOrderState();
@@ -18,12 +17,20 @@ class AddOrder extends StatefulWidget {
 
 class _AddOrderState extends State<AddOrder> {
   CustomerInfodata customerInfodata = CustomerInfodata();
+  DashBoardRepo dashBoardRepo = DashBoardRepo();
   var ficon = (4.39 * SizeConfig.heightMultiplier).round();
   double ficonrad;
   @override
   void initState() {
+    check();
     ficonrad = ficon.toDouble();
     super.initState();
+  }
+
+  void check() async {
+    if (widget.customerData == null) {
+      customerInfodata = await dashBoardRepo.fetchCustomerInfo();
+    }
   }
 
   @override

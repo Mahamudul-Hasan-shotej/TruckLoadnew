@@ -18,10 +18,10 @@ import 'package:truck_load_demo/ViewModel/OrderData.dart';
 import 'package:truck_load_demo/Models/modelData/Color.dart';
 import 'package:truck_load_demo/Models/modelData/SizeConfig.dart';
 import 'package:truck_load_demo/Views/LoginScreenOne.dart';
-import 'package:truck_load_demo/Views/OrderPlace/AddOrder.dart';
+import 'package:truck_load_demo/Views/OrderPlace/OrderProcess.dart';
 import 'package:truck_load_demo/Views/OrderHistory.dart';
 import 'package:truck_load_demo/Views/Profile.dart';
-import 'package:truck_load_demo/repositories/DashBoard/deshBoardOne_repo.dart';
+import 'package:truck_load_demo/repositories/DashBoard/deshBoard_repo.dart';
 
 import 'OrderPlace/Global.dart' as globals;
 

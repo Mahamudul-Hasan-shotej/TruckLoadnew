@@ -5,8 +5,9 @@ import 'package:truck_load_demo/ViewModel/CustomerInfodata.dart';
 import 'package:truck_load_demo/ViewModel/OrderFormData.dart';
 import 'package:truck_load_demo/Models/modelData/Color.dart';
 import 'package:truck_load_demo/Models/modelData/SizeConfig.dart';
-import 'package:truck_load_demo/Views/OrderPlace/Order.dart';
+import 'package:truck_load_demo/Views/OrderPlace/OrderForm.dart';
 import 'package:truck_load_demo/Models/Services/AdditionalServiceToPackageService.dart';
+import 'package:truck_load_demo/repositories/OrderPlacedBoard/createOrder_repo.dart';
 
 import 'Global.dart' as globals;
 import '../Dashboard.dart';
@@ -14,6 +15,7 @@ import '../Dashboard.dart';
 class ListOfOrder extends StatefulWidget {
   final CustomerInfodata customerData;
   final Orderformdata orderdata;
+  
 
   ListOfOrder({this.customerData, this.orderdata});
   @override
@@ -22,6 +24,7 @@ class ListOfOrder extends StatefulWidget {
 
 class _ListOfOrderState extends State<ListOfOrder> {
   CustomerInfodata customerInfodata = CustomerInfodata();
+  CreateOrder createOrder = CreateOrder();
   var ficon = (4.39 * SizeConfig.heightMultiplier).round();
   double ficonrad;
   @override
@@ -262,8 +265,7 @@ class _ListOfOrderState extends State<ListOfOrder> {
                           child: RaisedButton(
                             onPressed: () {
                               if (globals.truckType.isNotEmpty) {
-                                AdditionalDataService.createOrder(
-                                        widget.orderdata)
+                                    createOrder.createOrder(widget.orderdata)
                                     .then((response) {
                                   if (response.statusCode == 200) {
                                     _showModalButtomSheetSuccess(context);
