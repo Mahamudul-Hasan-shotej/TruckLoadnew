@@ -9,6 +9,7 @@ import 'package:truck_load_demo/Views/Dashboard.dart';
 import 'package:truck_load_demo/Views/OrderDetails.dart';
 import 'package:truck_load_demo/Models/Services/AdditionalServiceToPackageService.dart';
 import 'package:truck_load_demo/Views/OrderPlace/Global.dart' as globals;
+import 'package:truck_load_demo/repositories/OrderDetails/AllOrder.dart';
 import 'Dashboard.dart';
 
 class OrderHistory extends StatefulWidget {
@@ -18,6 +19,7 @@ class OrderHistory extends StatefulWidget {
 
 class _OrderHistoryState extends State<OrderHistory> {
   OrderData order = OrderData();
+  AllOrder allOrder = AllOrder();
   List<String> formatedDate = [];
 
   @override
@@ -57,7 +59,7 @@ class _OrderHistoryState extends State<OrderHistory> {
                   color: ColorConfig.bagColour,
                 ),
                 child: FutureBuilder(
-                    future: AdditionalDataService.fetchOrder(globals.pk),
+                    future: allOrder.fetchAllOrder(),
                     builder: (context, snapshot) {
                       if (snapshot.connectionState == ConnectionState.done) {
                         if (snapshot.hasData) {
@@ -224,5 +226,4 @@ class _OrderHistoryState extends State<OrderHistory> {
           )),
     );
   }
-
 }

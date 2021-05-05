@@ -64,23 +64,30 @@ class AdditionalDataService {
   }
 
   //'https://api.truckload.trukiot.com/v8/object?pk=1614489805683_lgri_order&sk=lease
-  static Future fetchOrder(String pk) async {
-    final response = await http
-        .get('https://api.truckload.trukiot.com/v1/customer/orders?sk=$pk');
-    if (response.statusCode == 200) {
-      resfive = orderDataFromJson(response.body);
-      return resfive;
+   Future<dynamic> fetchAllOrder(String pk) async {
+      var responseJson;
+    try {
+      final response = await http
+          .get('https://api.truckload.trukiot.com/v1/customer/orders?sk=$pk');
+          responseJson = _returnResponse(response);
+    } on SocketException {
+      throw FetchDataException('No Internet connection'); // TODO
     }
+   return responseJson;
   }
 
-  static Future fetchOrderinfo(String pk) async {
-    final response = await http
-        .get('https://api.truckload.trukiot.com/v1/truck-status?order_id=$pk');
-    if (response.statusCode == 200) {
-      resorderinfo = orderInfoFromJson(response.body);
-      return resorderinfo;
+   Future<dynamic> fetchIndividualOrder(String pk) async {
+      var responseJson;
+    try {
+      final response = await http
+          .get('https://api.truckload.trukiot.com/v1/truck-status?order_id=$pk');
+          responseJson = _returnResponse(response);
+    }on SocketException {
+      throw FetchDataException('No Internet connection'); // TODO
     }
-  }
+      return responseJson;
+    }
+  
 
   Future<http.Response> createOrder(var data) async {
     var responseJson;

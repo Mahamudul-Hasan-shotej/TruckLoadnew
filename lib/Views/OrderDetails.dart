@@ -1,13 +1,13 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
-
 import 'package:truck_load_demo/ViewModel/OrderInfo.dart';
 import 'package:truck_load_demo/Models/modelData/Color.dart';
 import 'package:truck_load_demo/Models/modelData/SizeConfig.dart';
 
-import 'package:truck_load_demo/Views/OrderInfo/LockScreen.dart';
+import 'package:truck_load_demo/Views/OrderInfo/Smartfeatures.dart';
 import 'package:truck_load_demo/Models/Services/AdditionalServiceToPackageService.dart';
+import 'package:truck_load_demo/repositories/OrderDetails/IndividualOrder.dart';
 import 'OrderPlace/Global.dart' as globals;
 import 'package:truck_load_demo/Views/OrderHistory.dart';
 
@@ -20,6 +20,7 @@ class OrderDetails extends StatefulWidget {
 }
 
 class _OrderDetailsState extends State<OrderDetails> {
+  IndividualOrder individualOrder = IndividualOrder();
   final _scrollController = ScrollController();
   final iconList = <IconData>[
     Icons.home,
@@ -33,7 +34,7 @@ class _OrderDetailsState extends State<OrderDetails> {
     return WillPopScope(
       onWillPop: () async => false,
       child: FutureBuilder(
-        future: AdditionalDataService.fetchOrderinfo(widget.pk),
+        future: individualOrder.fetchIndividualOrder(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.hasData) {

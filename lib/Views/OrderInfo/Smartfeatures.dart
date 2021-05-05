@@ -1,13 +1,13 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+
 import 'package:truck_load_demo/Models/modelData/Color.dart';
 import 'package:truck_load_demo/Models/modelData/SizeConfig.dart';
 
 import 'package:truck_load_demo/Views/OrderPlace/Global.dart' as globals;
 
 import 'package:truck_load_demo/Views/OrderDetails.dart';
-import 'package:truck_load_demo/Views/OrderInfo/LockSccreen1.dart';
+import 'package:truck_load_demo/Views/OrderInfo/LockSccreen.dart';
 import 'package:truck_load_demo/Views/OrderInfo/VsCamera.dart';
 import 'package:truck_load_demo/Views/OrderInfo/VsMap.dart';
 
